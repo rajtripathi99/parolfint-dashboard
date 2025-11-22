@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SidebarTrigger } from "./ui/sidebar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Bell, ChevronDown, Moon, Search, Settings, Sun, UserIcon } from "lucide-react";
+import { Bell, ChevronDown, Moon, Search, Settings, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 export default function Page() {

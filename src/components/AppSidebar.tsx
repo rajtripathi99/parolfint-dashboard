@@ -1,7 +1,7 @@
 "use client"
 
 import { ArrowRight, ChevronsUpDown, HelpCircle, LayoutDashboard, LogOut, MessageCircle, Receipt, Settings, ShoppingCart, TruckIcon, User2, UsersIcon } from "lucide-react";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarTrigger, useSidebar } from "./ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, useSidebar } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";

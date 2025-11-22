@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRight, ChevronsUpDown, HelpCircle, LayoutDashboard, MessageCircle, Settings, ShoppingCart, TruckIcon, UsersIcon } from "lucide-react";
+import { ArrowRight, ChevronsUpDown, HelpCircle, LayoutDashboard, LogOut, MessageCircle, Receipt, Settings, ShoppingCart, TruckIcon, User2, UsersIcon } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarTrigger, useSidebar } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
@@ -81,14 +81,14 @@ export default function AppSidebar() {
                                     </div>
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56" align="start">
+                            <DropdownMenuContent className="w-56" align="end">
                                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>Profile</DropdownMenuItem>
-                                <DropdownMenuItem>Billing</DropdownMenuItem>
-                                <DropdownMenuItem>Settings</DropdownMenuItem>
+                                <DropdownMenuItem><User2 /> Profile</DropdownMenuItem>
+                                <DropdownMenuItem><Receipt /> Billing</DropdownMenuItem>
+                                <DropdownMenuItem><Settings /> Settings</DropdownMenuItem>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>Log out</DropdownMenuItem>
+                                <DropdownMenuItem className="text-red-600"><LogOut className="text-red-600"/> Log out</DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </SidebarMenuItem>

@@ -21,21 +21,30 @@ export default function StatsCard({
   bgColor = "bg-background",
   icon: Icon,
 }: StatsCardProps) {
+  // Check if using a custom colored background
+  const hasCustomBg = bgColor !== "bg-background" && bgColor !== "bg-card";
+  
   return (
     <div className={`${bgColor} border border-border rounded-lg p-4 relative`}>
       {/* Icon in top right */}
       {Icon && (
         <div className="absolute top-4 right-4">
-          <Icon className="h-5 w-5 text-muted-foreground/80 dark:text-muted-foreground" />
+          <Icon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
         </div>
       )}
 
       {/* Content */}
       <div className="space-y-1">
-        <p className="text-sm text-muted-foreground/90 dark:text-muted-foreground">{title}</p>
-        <h3 className="text-3xl font-bold text-foreground">{value}</h3>
+        <p className="text-sm text-gray-700 dark:text-gray-300">
+          {title}
+        </p>
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+          {value}
+        </h3>
         <div className="flex items-center gap-2">
-          <span className="text-xs text-muted-foreground/90 dark:text-muted-foreground">{comparison}</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">
+            {comparison}
+          </span>
           <div className="flex items-center gap-1">
             {isIncrease ? (
               <ArrowUp className="h-3 w-3 text-green-600 dark:text-green-400" />

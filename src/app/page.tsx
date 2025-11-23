@@ -47,34 +47,34 @@ export default function Page() {
           comparison="Vs Last Week"
           percentageChange="+34%"
           isIncrease={true}
-          bgColor="bg-background"
+          bgColor="bg-green-200 dark:bg-green-500/20"
           icon={FileText}
         />
         <StatsCard
-          title="Total Shipments"
-          value="200"
+          title="In Transit"
+          value="120"
           comparison="Vs Last Week"
-          percentageChange="+34%"
+          percentageChange="+20%"
           isIncrease={true}
-          bgColor="bg-yellow-200 dark:bg-yellow-900/30"
+          bgColor="bg-yellow-200 dark:bg-yellow-500/20"
           icon={Package}
         />
         <StatsCard
-          title="Total Shipments"
-          value="200"
+          title="Revenue"
+          value="$45K"
           comparison="Vs Last Week"
           percentageChange="+13%"
           isIncrease={true}
-          bgColor="bg-purple-200 dark:bg-purple-900/30"
+          bgColor="bg-purple-200 dark:bg-purple-500/20"
           icon={TrendingUp}
         />
         <StatsCard
-          title="Total Shipments"
-          value="200"
+          title="Delivered"
+          value="80"
           comparison="Vs Last Week"
           percentageChange="+34%"
           isIncrease={true}
-          bgColor="bg-green-200 dark:bg-green-900/30"
+          bgColor="bg-blue-200 dark:bg-blue-500/20"
           icon={CheckCircle}
         />
       </div>

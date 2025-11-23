@@ -42,7 +42,9 @@ const items = [
 ];
 
 export default function AppSidebar() {
-    const { state } = useSidebar();
+    const { state, isMobile } = useSidebar();
+    const isCollapsed = state === "collapsed";
+    
     return (
         <Sidebar collapsible="icon">
             {/* Header */}
@@ -51,7 +53,7 @@ export default function AppSidebar() {
                     <SidebarMenuItem>
                         <SidebarMenuButton className="h-12" asChild>
                             <Link href="/" className="flex items-center gap-2">
-                                <Image src="/parolfint-logo.svg" alt="logo" width={30} height={30} />
+                                <Image src="/parolfint-logo.svg" alt="logo" width={30} height={30} className="flex-shrink-0" />
                                 <div className="flex flex-col overflow-hidden">
                                     <span className="font-semibold truncate">ParolFint</span>
                                     <span className="text-xs text-muted-foreground truncate">Admin Panel</span>
@@ -66,29 +68,51 @@ export default function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <DropdownMenu>
-                            <DropdownMenuTrigger asChild >
-                                <SidebarMenuButton className="h-auto p-3 border-2">
-                                    <div className="flex items-center gap-3 w-full">
-                                        <Avatar className="h-8 w-8">
+                            <DropdownMenuTrigger asChild>
+                                <SidebarMenuButton 
+                                    className={`h-auto border-2 ${isCollapsed ? "p-2 justify-center" : "p-3"}`}
+                                >
+                                    {isCollapsed ? (
+                                        <Avatar className="h-6 w-6 flex-shrink-0">
                                             <AvatarImage src="/logo.svg" alt="Aaron James" />
                                             <AvatarFallback>AJ</AvatarFallback>
                                         </Avatar>
-                                        <div className="flex flex-col flex-1 text-left">
-                                            <span className="font-semibold text-sm">Aaron James</span>
-                                            <span className="text-xs text-muted-foreground">Paid plan</span>
+                                    ) : (
+                                        <div className="flex items-center gap-3 w-full min-w-0">
+                                            <Avatar className="h-8 w-8 flex-shrink-0">
+                                                <AvatarImage src="/logo.svg" alt="Aaron James" />
+                                                <AvatarFallback>AJ</AvatarFallback>
+                                            </Avatar>
+                                            <div className="flex flex-col flex-1 text-left min-w-0">
+                                                <span className="font-semibold text-sm truncate">Aaron James</span>
+                                                <span className="text-xs text-muted-foreground truncate">Paid plan</span>
+                                            </div>
+                                            <ChevronsUpDown className="h-4 w-4 ml-auto flex-shrink-0" />
                                         </div>
-                                        <ChevronsUpDown className="h-4 w-4 ml-auto" />
-                                    </div>
+                                    )}
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56" align="end">
+                            <DropdownMenuContent 
+                                className="w-56" 
+                                align="end"
+                                side={isMobile ? "bottom" : "right"}
+                                sideOffset={8}
+                            >
                                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem><User2 /> Profile</DropdownMenuItem>
-                                <DropdownMenuItem><Receipt /> Billing</DropdownMenuItem>
-                                <DropdownMenuItem><Settings /> Settings</DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <User2 className="mr-2 h-4 w-4" /> Profile
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Receipt className="mr-2 h-4 w-4" /> Billing
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Settings className="mr-2 h-4 w-4" /> Settings
+                                </DropdownMenuItem>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem className="text-red-600"><LogOut className="text-red-600"/> Log out</DropdownMenuItem>
+                                <DropdownMenuItem className="text-red-600">
+                                    <LogOut className="mr-2 h-4 w-4 text-red-600" /> Log out
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </SidebarMenuItem>
@@ -119,13 +143,13 @@ export default function AppSidebar() {
             </SidebarContent>
             {/* Footer */}
             <SidebarFooter>
-                {state === "expanded" && (
+                {!isCollapsed && (
                     <div className="border-2 rounded-md overflow-hidden mx-2 mb-2">
                         <div className="flex items-center gap-4 p-4">
                             <div className="flex-shrink-0">
                                 <img src="/up-trend logo.svg" alt="logo" className="w-8 h-8" />
                             </div>
-                            <div className="flex flex-col">
+                            <div className="flex flex-col min-w-0 flex-1">
                                 <span className="font-semibold text-xs">Upgrade & Unlock</span>
                                 <span className="font-semibold text-xs">all features</span>
                             </div>
@@ -134,7 +158,7 @@ export default function AppSidebar() {
                             <Button variant="ghost" className="w-full justify-between border-2" asChild>
                                 <Link href="/">
                                     <span className="text-xs">Manage your plans</span>
-                                    <ArrowRight className="h-4 w-4" />
+                                    <ArrowRight className="h-4 w-4 flex-shrink-0" />
                                 </Link>
                             </Button>
                         </div>
